@@ -1,0 +1,32 @@
+<div class="buttons horizontal">
+  <button routerLink="/home">All devices</button>
+</div>
+<h2>Monitoring specific device : {{deviceName}}</h2>
+<div class="container">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- deviceName Column -->
+    <ng-container matColumnDef="deviceName">
+      <mat-header-cell *matHeaderCellDef> Device name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.deviceName}} </mat-cell>
+    </ng-container>
+
+    <!-- value Column -->
+    <ng-container matColumnDef="measureValue">
+      <mat-header-cell *matHeaderCellDef> Value</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.measureValue}} </mat-cell>
+    </ng-container>
+
+    <!-- dateOfMeasure Column -->
+    <ng-container matColumnDef="dateOfMeasure">
+      <mat-header-cell *matHeaderCellDef> Date of measure</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dateOfMeasure | date: 'dd/MM/yyyy HH:mm:ss.SSS'}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row class="mine" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>
+

@@ -1,0 +1,18 @@
+<div class="buttons horizontal">
+  <button (click)="refresh()">Refresh</button>
+</div>
+<div class="container">
+  <div class="backDevice commonDevice" *ngFor="let deviceInformation of backDevicesInformations">
+    <h2>Device {{ deviceInformation.deviceName }}</h2>
+    <h3>Number of message : {{deviceInformation.numberOfMessageSend}}</h3>
+    <button routerLink="/device-details/{{deviceInformation.deviceName}}">Details</button>
+  </div>
+</div>
+<div class="container">
+  <div class="frontDevice commonDevice" *ngFor="let deviceInformation of frontDevicesInformations">
+    <h2>Device {{ deviceInformation.deviceName }}</h2>
+    <h3>Number of message : {{deviceInformation.numberOfMessageSend}}</h3>
+    <button routerLink="/device-details/{{deviceInformation.deviceName}}">Details</button>
+  </div>
+</div>
+
